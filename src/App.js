@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+//import routes:
+import Home from "../src/public.pages/Home"
+import Navbar from './components/Navbar';
+import SignUp from './public.pages/auth/SignUp';
+import Login from './public.pages/auth/Login';
+import Error from "./public.pages/misfuctions/Error";
+import NotFound from "./public.pages/misfuctions/Notfound"
+import SignupMed from './public.pages/auth/SignupMed';
+import SignupCli from './public.pages/auth/SignupCli';
+import PerfilMedicx from './pages.medicx/PerfilMedicx';
+import PerfilCliente from './pages.cliente/PerfilCliente';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <Navbar />
+
+    <Routes>
+
+    <Route path="/" element={ <Home /> } />
+    <Route path="/signup"  element = { <SignUp /> } /> 
+    <Route path="/signup/medicx" element= { <SignupMed/> } />
+    <Route path="/signup/cliente"  element={ <SignupCli /> }  />
+
+    <Route path="/login"  element = { <Login /> } />
+
+    <Route path="/perfilmedicx" element = {<PerfilMedicx /> } />
+    <Route path="/perfilcliente" element = {<PerfilCliente /> } />
+
+    <Route path="/error"  element = { <Error/> } />
+    <Route path="*"    element = { <NotFound/> } />
+
+
+    </Routes>
+     
     </div>
   );
 }
