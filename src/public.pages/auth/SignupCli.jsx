@@ -21,7 +21,7 @@ function SignupCli() {
 
         try {
             await singupClienteService(cliente)
-            navigate("/home")
+            navigate("/login/cliente")
         } catch (err) {
             if (err.response && err.response.status === 400) {
                 setErrorMessage(err.response.data.errorMessage)

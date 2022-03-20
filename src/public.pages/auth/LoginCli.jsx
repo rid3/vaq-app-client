@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { loginMedicxService } from '../../services/auth.services';
+import { loginClienteService } from '../../services/auth.services';
 
 function Login() {
 
-  const [ email, setEmail ] = useState("");
-  const [ password, setPassword ] = useState("");
+  const [ emailCliente, setEmailCliente ] = useState("");
+  const [ passwordCliente, setPasswordCliente ] = useState("");
   const [ errorMessage, setErrorMessage ] = useState("");
 
   const navigate = useNavigate();
@@ -13,11 +13,11 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const user = { email, password }
+    const user = { emailCliente, passwordCliente }
     try {
 
       //conexión al server para hacer logIn
-      const response = await loginMedicxService(user)
+      const response = await loginClienteService(user)
       const { authToken } = response.data
 
       //recibir el Token y guardarlo en localStorage
@@ -39,27 +39,27 @@ function Login() {
 
   return (
     <div>
-        <h1>LogIn</h1>
+        <h1>Log In Cliente</h1>
 
         <form onSubmit={ handleSubmit }>
             <br />
             <br />
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="emailCliente">Email: </label>
             <input 
             type="email" 
-            name="email" 
-            value={email} 
-            onChange= { (event) => setEmail (event.target.value) }
+            name="emailCliente" 
+            value={emailCliente} 
+            onChange= { (event) => setEmailCliente (event.target.value) }
             />
 
             <br />
             <br />
-            <label htmlFor="password">Password: </label>
+            <label htmlFor="passwordCliente">Password: </label>
             <input 
             type="password" 
-            name="password" 
-            value={password} 
-            onChange= { (event) => setPassword (event.target.value) }
+            name="passwordCliente" 
+            value={passwordCliente} 
+            onChange= { (event) => setPasswordCliente (event.target.value) }
             />     
 
             <br />

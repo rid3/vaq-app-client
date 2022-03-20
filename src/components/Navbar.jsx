@@ -12,8 +12,16 @@ function Navbar() {
         Sign Up
     </NavLink>
 
-    <NavLink to ="/login">
-      Log In
+    <NavLink to ="/login/medicx">
+      Log In Medicx
+    </NavLink>
+
+    <NavLink to ="/login/cliente">
+      Log In Cliente
+    </NavLink>
+
+    <NavLink to ="/perfilesmed">
+      Perfiles Medicxs
     </NavLink>
 
     </div>

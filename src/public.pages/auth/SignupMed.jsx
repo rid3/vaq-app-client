@@ -21,7 +21,7 @@ function SignupMed() {
        //mandar al usuario medicx al BE para crear el registro
       try {
         await signupMedicxService(medicx)
-        navigate("/")
+        navigate("/login/medicx")
 
       } catch (err){ //los errores del BE (err)
         if(err.response && err.response.status === 400) {
