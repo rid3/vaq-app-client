@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { loginClienteService } from '../../services/auth.services';
 
-function Login() {
+function Login(props) {
 
   const [ emailCliente, setEmailCliente ] = useState("");
   const [ passwordCliente, setPasswordCliente ] = useState("");
@@ -23,6 +23,7 @@ function Login() {
 
       //recibir el Token y guardarlo en localStorage
       localStorage.setItem ("authToken", authToken)
+      props.setIsLoggedIn(true)
 
       navigate("/perfilcliente")
 

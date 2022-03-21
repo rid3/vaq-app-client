@@ -12,6 +12,29 @@ function PerfilesMed() {
     const navigate = useNavigate()
 
 
+    //INTENTO DE BÚSQUEDA-------------------------------------
+
+    // const [ medicxsToRender, setMedicxsToRender ] = useState(null)
+
+    // const addMedicx = (medicx) => {
+    //     setAllMedicxs ( [ ...allMedicxs,medicx ] )
+    //     setMedicxsToRender ( [ ...allMedicxs, medicx ] )
+    // }
+
+    // const searchMedicxs = (searchQuery) => {
+        
+    //     const filteredMedicxs = allMedicxs.filter((eachMedicx) => {
+    //         return eachMedicx.especializacion.includes(searchQuery)
+    //     })
+    //     setMedicxsToRender(filteredMedicxs)
+    // }
+
+
+
+    //-------------------------------------------------------------------
+
+
+
     useEffect (() => {
         getAllMedicxs()
     }, [])
@@ -31,8 +54,14 @@ function PerfilesMed() {
     }
 
   return (
-    <div>
-
+  
+  <div>
+  <br />
+  <br />
+      {/* <Search searchMedicxs={searchMedicxs} /> */}
+      <br />
+      <br />
+      
     { allMedicxs.map ((eachMedicx) => {
         return (
             <div key = {eachMedicx._id} >

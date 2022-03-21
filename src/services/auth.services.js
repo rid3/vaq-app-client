@@ -32,10 +32,17 @@ const loginClienteService = (user) => {
     return service.post(`/login/cliente`, user)
 }
 
+const verifyService = () => {
+    return service.get("/verify")
+}
+
+
+
 export {
     signupMedicxService,
     singupClienteService,
     loginMedicxService,
-    loginClienteService
+    loginClienteService,
+    verifyService
 
 }

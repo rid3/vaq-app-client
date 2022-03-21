@@ -70,7 +70,7 @@ function SignupCli() {
 
         <label htmlFor="passwordCliente">Password: </label>
         <input 
-        type="text" 
+        type="password" 
         name="passwordCliente" 
         value={passwordCliente}
         onChange= { (event) => setPasswordCliente (event.target.value) }

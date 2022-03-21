@@ -17,17 +17,47 @@ import Details from "./public.pages/Details"
 import EditarPerfilMed from './pages.medicx/EditarPerfilMed';
 import EditarPerfilCli from "./pages.cliente/EditarPerfilCli"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { verifyService } from './services/auth.services';
 
 
 function App() {
 
   const [ isLoggedIn, setIsLoggedIn ] = useState (false)
 
+  // const [ isMedicx, setIsMedicx ] = useState(false)
+  // const [ isCliente, setIsCliente ] = useState(false)
+
+  useEffect(() => {
+    verifyUser()
+  },[])
+  
+  const verifyUser = async (props) => {
+    //conectar con el server y validar el token
+    try {
+      await verifyService()
+      setIsLoggedIn(true)
+      // if (props.authToken.data.role === "medicx") {
+      //   setIsMedicx(true)
+      // } else if (props.authToken.data.role === "cliente") {
+      //   setIsCliente(true)
+      // }
+    } catch (err) {
+      setIsLoggedIn(false)
+      // setIsCliente(false)
+      // setIsMedicx(false)
+    }
+    
+  }
+
   return (
     <div className="App">
 
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <Navbar 
+    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+    // isCliente={isCliente} setIsCliente = {setIsCliente}
+    // isMedicx={isMedicx} setIsMedicx = {setIsMedicx}
+    />
 
     <Routes>
 
@@ -40,7 +70,7 @@ function App() {
     <Route path="/:id/details" element = { <Details /> } />
 
     <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} /> } />
-    <Route path="/login/cliente" element = { <LoginCli /> } />
+    <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} /> } />
 
     <Route path="/perfilmedicx" element = {<PerfilMedicx /> } />
     <Route path="/:id/editperfilmed" element = { <EditarPerfilMed /> } />
