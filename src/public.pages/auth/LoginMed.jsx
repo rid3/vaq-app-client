@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { loginMedicxService } from '../../services/auth.services';
 
-function Login() {
+function Login(props) {
 
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -19,18 +19,23 @@ function Login() {
       //conexión al server para hacer logIn
       const response = await loginMedicxService(user)
       const { authToken } = response.data
-      console.log("authToken", authToken)
+      //console.log("authToken", authToken)
 
       //recibir el Token y guardarlo en localStorage
       localStorage.setItem ("authToken", authToken)
+      props.setIsLoggedIn(true)
 
-      navigate("/")
+      navigate("/perfilmedicx")
 
     } catch(err){
       if(err?.response?.status === 400) {
-        console.log(errorMessage)
-        setErrorMessage(err.message.data.errorMessage)
-      } else {
+        //console.log(errorMessage)
+        setErrorMessage(err.response.data.errorMessage)
+      } else if (err?.response?.status === 401)
+      {
+        setErrorMessage(err.response.data.errorMessage)
+      } 
+      else {
         navigate("/error")
       }
 

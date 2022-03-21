@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom"; 
+import { NavLink, useNavigate } from "react-router-dom"; 
 
-function Navbar() {
+function Navbar(props) {
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    props.setIsLoggedIn(false)
+    navigate("/")
+
+  }
+
   return (
     <div>
 
@@ -23,6 +32,8 @@ function Navbar() {
     <NavLink to ="/perfilesmed">
       Perfiles Medicxs
     </NavLink>
+
+    <button onClick={ handleClick } >Log Out</button>
 
     </div>
   )

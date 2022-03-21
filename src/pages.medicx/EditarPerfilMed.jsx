@@ -3,8 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { deleteCuentaService, updatePerfilService } from '../services/medicx.services'
 import { getDetailsService } from '../services/public.services'
 
-function EditarPerfil(props) {
 
+
+function EditarPerfil() {
+
+  //controlo la información que voy a manejar
   const [ nombreCompleto, setNombreCompleto ] = useState("")
   const [ especializacion, setEspecializacion ] = useState("")
   const [ capacitaciones, setCapacitaciones ] = useState("")
@@ -12,13 +15,21 @@ function EditarPerfil(props) {
   const [ imgMed, setImgMed ] = useState ("")
   const [ provincia, setProvincia ] = useState("")
   const [ ciudad, setCiudad ] = useState("")
+  const [ centroDeSalud, setCentroDeSalud ] = useState ("")
+  const [ diasYhorario, setDiasYhorario ] = useState("")
+  const [ atiendePor, setAtiendePor ] = useState("")
 
+  //recibe el input que pone el usuario
   const handleNombreCompleto = (e) => setNombreCompleto(e.target.value)
   const handleEspecializacion = (e) => setEspecializacion (e.target.value)
   const handleCapacitaciones = (e) => setCapacitaciones (e.target.value)
   const handleProvincia = (e) => setProvincia (e.target.value)
   const handleCiudad = (e) => setCiudad (e.target.value)
-  
+  const handleCentroDeSalud = (e) => setCentroDeSalud (e.target.value)
+  const handleDiasYhorario = (e) => setDiasYhorario (e.target.value)
+  const handleAtiendePor = (e) => setAtiendePor (e.target.value)
+
+  //lidiar con imágenes
   const handleImgCapacitacion = (e) => setImgCapacitacion (e.target.value)
   const handleImgMed = (e) => setImgMed (e.target.value)
 
@@ -32,29 +43,80 @@ function EditarPerfil(props) {
 
   const getMedicxDetails = async () => {
     try {
-      const response = await getDetailsService(id)
+      const response = await getDetailsService(id) 
       setNombreCompleto(response.data.nombreCompleto)
       setEspecializacion(response.data.especializacion)
       setCapacitaciones(response.data.capacitaciones)
       setProvincia(response.data.provincia)
       setCiudad(response.data.ciudad)
+      setCentroDeSalud(response.data.centroDeSalud)
+      setDiasYhorario(response.data.diasYhorario)
+      setAtiendePor(response.data.atiendePor)
     } catch (err) {
       navigate("/error")
     }
   }
+
+  //FILE UPLOAD ----------------------------------------------
+
+  // const handleImgCapacitacion = (e) => {
+
+  //   const uploadData = new FormData()
+  //   uploadData.append("imgCapacitacion", e.target.files[0]);
+
+  //    uploadImage
+  //    .uploadImage(uploadData)
+  //   .then(response => {
+  //     setImgCapacitacion(response.fileUrl);
+  //   })
+  //   .catch(err => console.log("error al cargar la imagen", err));
+  // }
+
+  // const handleImgMed = (e) => {
+
+  //   const uploadData = new FormData()
+  //   uploadData.append("imgMed", e.target.files[0]);
+
+  //   uploadImage
+  //   .uploadImage(uploadData)
+  //   .then(response => {
+  //     setImgMed(response.fileUrl);
+  //   })
+  //   .catch(err => console.log("error al cargar la imagen", err));
+  // }
+
+  //-----------------------------------------------------------
 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await updatePerfilService (id, { nombreCompleto, especializacion, capacitaciones, provincia, ciudad })
+     await updatePerfilService (id, { nombreCompleto, especializacion, capacitaciones, provincia, ciudad, centroDeSalud, diasYhorario, atiendePor, imgMed, imgCapacitacion})
       navigate("/")
     } catch (err) {
-
+      navigate("/error")
     }
   }
+  //   uploadImage
+  //   .updatePerfilService ({ nombreCompleto, especializacion, capacitaciones, provincia, ciudad, centroDeSalud, diasYhorario, atiendePor, imgMed, imgCapacitacion })
+  //   .then (res => {
+  //     setNombreCompleto("");
+  //     setCapacitaciones("");
+  //     setEspecializacion("");
+  //     setProvincia("");
+  //     setCiudad("");
+  //     setCentroDeSalud("");
+  //     setDiasYhorario("");
+  //     setAtiendePor("");
+  //     setImgCapacitacion("");
+  //     setImgMed("");
+  //     navigate ("/");
+  //   })
+  //   .catch(err=> console.log("error while uploading", err))
+  // }
 
+  
   const handleClick = async () => {
     try {
       await deleteCuentaService(id)
@@ -69,7 +131,7 @@ function EditarPerfil(props) {
     <div>
         <h2>Editando Perfil Público</h2>
 
-        <form onSubmit={ handleSubmit } enctype="multipart/form-data" >
+        <form onSubmit={ handleSubmit } encType="multipart/form-data" >
 
           <label htmlFor="nombreCompleto">Nombre Completo: </label>
           <input type="text" name="nombreCompleto" value={nombreCompleto} onChange = { handleNombreCompleto } />
@@ -104,32 +166,22 @@ function EditarPerfil(props) {
           <input type="text" name="ciudad" value={ciudad} onChange = { handleCiudad } />
           <br />
           <br />
-{/* 
+
           <label htmlFor="centroDeSalud">Guardias en centor de salud: </label>
           <input type="text" name="centroDeSalud" value={centroDeSalud} onChange = { handleCentroDeSalud } />
           <br />
           <br />
 
-          <label htmlFor="diasYhorarios">Días y Horarios: </label>
-          <input type="text" name="diasYHorarios" value={diasYhorarios} onChange = { handleDiasYhorarios }/>
+          <label htmlFor="diasYhorario">Días y Horarios: </label>
+          <input type="text" name="diasYHorario" value={diasYhorario} onChange = { handleDiasYhorario }/>
           <br />
           <br />
 
-          <label htmlFor="obraSocial">Obra Social: </label>
-          <input type="radio" name="atiendePor" value={obraSocial} onChange = { handleObraSocial }/>
+          <label htmlFor="atiendePor">Atiende por (obras sociales, particular, ambos): </label>
+          <input type="text" name="atiendePor" value={atiendePor} onChange = { handleAtiendePor }/>
           <br />
           <br />
 
-          <label htmlFor="particular">Particular</label>
-          <input type="radio" name="atiendePor" value= {particular} onChange = { handleParticular } />
-          <br />
-          <br />
-
-          <label htmlFor="ambos">Obra Social y Particular</label>
-          <input type="radio" name="atiendePor" value={ambos} onChange = { handleAmbos } />
-          <br />
-          <br />
-          <br /> */}
 
           <button>Editar Perfil</button>
           <br />

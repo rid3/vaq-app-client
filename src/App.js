@@ -17,12 +17,17 @@ import Details from "./public.pages/Details"
 import EditarPerfilMed from './pages.medicx/EditarPerfilMed';
 import EditarPerfilCli from "./pages.cliente/EditarPerfilCli"
 
+import { useState } from "react"
+
 
 function App() {
+
+  const [ isLoggedIn, setIsLoggedIn ] = useState (false)
+
   return (
     <div className="App">
 
-    <Navbar />
+    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
     <Routes>
 
@@ -34,7 +39,7 @@ function App() {
     <Route path="/perfilesmed" element = { <PerfilesMed /> } />
     <Route path="/:id/details" element = { <Details /> } />
 
-    <Route path="/login/medicx"  element = { <LoginMed /> } />
+    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} /> } />
     <Route path="/login/cliente" element = { <LoginCli /> } />
 
     <Route path="/perfilmedicx" element = {<PerfilMedicx /> } />

@@ -30,8 +30,6 @@ function Details() {
 
   return (
     <div>
-    
-    <h2>Más Información</h2>
 
     <h4>{medicxDetails.nombreCompleto}</h4>
     <img src={medicxDetails.imgMed} alt="foto" />
@@ -40,8 +38,12 @@ function Details() {
     <p>Acreditación: {medicxDetails.imgCapacitaciones}</p>
     <p>Provincia: {medicxDetails.provincia}</p>
     <p>Ciudad: {medicxDetails.ciudad}</p>
+    <p>Guardias en: {medicxDetails.centroDeSalud} <br />
+    Días y Horarios: {medicxDetails.diasYhorario}</p>
+    <p>Atiende por: {medicxDetails.atiendePor}</p>
 
     </div>
+    
   )
 }
 

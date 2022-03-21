@@ -17,8 +17,6 @@ const getDetailsService = (id) => {
 
 
 
-
-
 export {
     getAllMedicxsService,
     getDetailsService
