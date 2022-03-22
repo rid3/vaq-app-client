@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { loginClienteService } from '../../services/auth.services';
+import { verifyService } from "../../services/auth.services"
 
 function Login(props) {
 
@@ -25,7 +26,12 @@ function Login(props) {
       localStorage.setItem ("authToken", authToken)
       props.setIsLoggedIn(true)
 
-      navigate("/perfilcliente")
+      const verifyUser = await verifyService()
+      if (verifyUser.data.userRole === "cliente") {
+        navigate("/perfilcliente")
+      } else {
+        navigate("/")
+      }
 
     } catch(err){
       if(err?.response?.status === 400) {

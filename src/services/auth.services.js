@@ -21,7 +21,7 @@ const signupMedicxService = (user) => {
 }
 
 const singupClienteService = (user) => {
-    return service.post("/signup/cliente", user) //cuando paso user, le paso el req.body 
+    return service.post("/signup/cliente", user) 
 }
 
 const loginMedicxService = (user) => {
@@ -32,13 +32,9 @@ const loginClienteService = (user) => {
     return service.post(`/login/cliente`, user)
 }
 
-const verifyService = (payload) => {
-    return service.get("/verify", payload)
+const verifyService = () => {
+    return service.get("/verify")
 }
-
-// const isClienteService = () => {
-//     return service.get("/iscliente")
-// }
 
 
 

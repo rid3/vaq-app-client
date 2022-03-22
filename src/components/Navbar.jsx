@@ -3,15 +3,18 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Navbar(props) {
 
   const { isLoggedIn, setIsLoggedIn } = props
-  // const { isMedicx, setIsMedicx } = props
-  //  const { isCliente, setIsCliente } = props
+
+  const { isCliente, setIsCliente } =props
+
+  const { isMedicx, setIsMedicx } = props 
+
 
   const navigate = useNavigate()
 
   const handleClick = () => {
     setIsLoggedIn(false)
-    // setIsCliente(false)
-    // setIsMedicx(false)
+    setIsCliente(false)
+    setIsMedicx(false)
     localStorage.removeItem("authToken")
     navigate("/")
 
@@ -30,9 +33,9 @@ function Navbar(props) {
 
     { !isLoggedIn && <NavLink to="/signup"> Sign Up </NavLink> }
     
-    {/* { isCliente && <NavLink to="/perfilcliente" > Perfil PrivCli </NavLink> } */}
+   { isCliente && <NavLink to="/perfilcliente" > Perfil PrivCli </NavLink> } 
 
-    {/* { isMedicx && <NavLink to="/perfilmedicx" > Perfil PrivMed</NavLink> }  */}
+   { isMedicx && <NavLink to="/perfilmedicx" > Perfil PrivMed</NavLink> } 
     
 
     { isLoggedIn && <button onClick={ handleClick } >Log Out</button> }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { loginMedicxService } from '../../services/auth.services';
+import { loginMedicxService, verifyService } from '../../services/auth.services';
 
 function Login(props) {
 
@@ -25,7 +25,13 @@ function Login(props) {
       localStorage.setItem ("authToken", authToken)
       props.setIsLoggedIn(true)
 
-      navigate("/perfilmedicx")
+      const verifyUser = await verifyService()
+      if (verifyUser.data.userRole === "medicx") {
+        navigate("/perfilmedicx")
+      } else {
+        navigate("/")
+      }
+
 
     } catch(err){
       if(err?.response?.status === 400) {

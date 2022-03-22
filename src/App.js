@@ -26,8 +26,14 @@ function App() {
 
   const [ isLoggedIn, setIsLoggedIn ] = useState (false)
 
-  // const [ isMedicx, setIsMedicx ] = useState(false)
-  // const [ isCliente, setIsCliente ] = useState(false)
+  const [ isUserRole, setUserRole ] = useState(null)
+
+  const [ isCliente, setIsCliente ] = useState(false)
+
+  const [ isMedicx, setIsMedicx ] = useState(false)
+
+  const [ userId, setUserId] = useState(null)
+  
 
   useEffect(() => {
     verifyUser()
@@ -36,48 +42,26 @@ function App() {
   const verifyUser = async () => {
     //conectar con el server y validar el token
     try {
-      await verifyService()
+     const response = await verifyService()
       setIsLoggedIn(true)
-      // if(props.role === "medicx") {
-      //   setIsMedicx(true)
-      // } else if (props.role === "cliente") {
-      //   setIsCliente(true)
-      // }
-      // if (props.authToken.data.role === "medicx") {
-      //   setIsMedicx(true)
-      // } else if (props.authToken.data.role === "cliente") {
-      //   setIsCliente(true)
-      // }
+      setUserId(response.data.userId)
+      setUserRole(response.data.userRole) 
+      if (response.data.userRole === "cliente") {
+        setIsCliente(true)
+      }  else if (response.data.userRole === "medicx" ) {
+        setIsMedicx(true)
+      }
     } catch (err) {
       setIsLoggedIn(false)
-      // setIsCliente(false)
-      // setIsMedicx(false)
-    }
-    
+    } 
   }
-
-  // useEffect(() => {
-  //   verifyCliente()
-  // },[])
-
-  // const verifyCliente = async () => {
-  //   try {
-  //     await isClienteService()
-  //     setIsCliente(true)
-  //   } catch (err) {
-  //     setIsCliente(false)
-  //   }
-  // } 
-  // MÁS PRUEBAS PARA ISCLIENT ISMEDICX CON AUTHTOKEN - algo con el localStorage?
 
 
   return (
     <div className="App">
 
     <Navbar 
-    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
-    //  isCliente={isCliente} setIsCliente = {setIsCliente}
-    // isMedicx={isMedicx} setIsMedicx = {setIsMedicx}
+    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isCliente={isCliente} setIsCliente={setIsCliente} isMedicx={isMedicx} setIsMedicx={setIsMedicx}
     />
 
     <Routes>
@@ -90,14 +74,14 @@ function App() {
     <Route path="/perfilesmed" element = { <PerfilesMed /> } />
     <Route path="/:id/details" element = { <Details /> } />
 
-    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} /> } />
-    <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} /> } />
+    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser}/> } />
+    <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} /> } />
 
-    <Route path="/perfilmedicx" element = {<PerfilMedicx /> } />
-    <Route path="/:id/editperfilmed" element = { <EditarPerfilMed /> } />
+    <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId}/> } />
+    <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed /> } />
 
-    <Route path="/perfilcliente" element = {<PerfilCliente /> } />
-    <Route path="/:id/editperfilcli" element = { <EditarPerfilCli /> }/>
+    <Route path="/perfilcliente" element = {<PerfilCliente userId={userId} /> } />
+    <Route path="/perfilcliente/edit/:id" element = { <EditarPerfilCli /> }/>
 
     <Route path="/error"  element = { <Error/> } />
     <Route path="*"    element = { <NotFound/> } />
