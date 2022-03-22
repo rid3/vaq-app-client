@@ -72,7 +72,7 @@ function App() {
     <Route path="/signup/cliente"  element={ <SignupCli /> }  />
 
     <Route path="/perfilesmed" element = { <PerfilesMed /> } />
-    <Route path="/:id/details" element = { <Details /> } />
+    <Route path="/:id/details" element = { <Details isCliente={isCliente} setIsCliente={setIsCliente}/> } />
 
     <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser}/> } />
     <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} /> } />

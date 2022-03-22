@@ -11,30 +11,7 @@ function PerfilesMed() {
 
     const navigate = useNavigate()
 
-
-    //INTENTO DE BÚSQUEDA-------------------------------------
-
-    // const [ medicxsToRender, setMedicxsToRender ] = useState(null)
-
-    // const addMedicx = (medicx) => {
-    //     setAllMedicxs ( [ ...allMedicxs,medicx ] )
-    //     setMedicxsToRender ( [ ...allMedicxs, medicx ] )
-    // }
-
-    // const searchMedicxs = (searchQuery) => {
-        
-    //     const filteredMedicxs = allMedicxs.filter((eachMedicx) => {
-    //         return eachMedicx.especializacion.includes(searchQuery)
-    //     })
-    //     setMedicxsToRender(filteredMedicxs)
-    // }
-
-    //SEGUDNO INTENDO
-
     const [ searchTerm, setSearchTerm ] = useState("")
-
-    //-------------------------------------------------------------------
-
 
 
     useEffect (() => {
@@ -60,7 +37,6 @@ function PerfilesMed() {
   <div>
   <br />
   <br />
-      {/* <Search searchMedicxs={searchMedicxs} /> */}
 
       <input type="text" placeholder= "Buscar por especialización" onChange={event=> {setSearchTerm(event.target.value)} } />
       <br />

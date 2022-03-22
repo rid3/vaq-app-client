@@ -3,13 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getDetailsService } from '../services/public.services'
 import { guardarService } from "../services/cliente.services"
 
-function Details() {
+function Details(props) {
 
   const [ medicxDetails, setMedicxDetails ] = useState (null)
   
   const { id } = useParams()
 
   const navigate = useNavigate()
+
+  const { isCliente } = props
+
+
 
   useEffect (() => {
     getMedicxDetails()
@@ -55,7 +59,7 @@ function Details() {
     Días y Horarios: {medicxDetails.diasYhorario}</p>
     <p>Atiende por: {medicxDetails.atiendePor}</p>
 
-    <button onClick={ handleGuardar }  >Guardar Médicx</button>
+    { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
     
     </div>
 
