@@ -36,6 +36,8 @@ function Navbar(props) {
    { isCliente && <NavLink to="/perfilcliente" > Perfil PrivCli </NavLink> } 
 
    { isMedicx && <NavLink to="/perfilmedicx" > Perfil PrivMed</NavLink> } 
+
+    { isMedicx && <NavLink to="/user-list">Chat Medicxs</NavLink> }
     
 
     { isLoggedIn && <button onClick={ handleClick } >Log Out</button> }

@@ -57,7 +57,7 @@ function PerfilesMed() {
     { allMedicxs.filter((medicx) => {
         if (searchTerm === "") {
             return medicx
-        } else if (medicx.especializacion.toLowerCase().includes(searchTerm.toLowerCase())){
+        } else if ( medicx.especializacion.toLowerCase().includes(searchTerm.toLowerCase()) ){
             return medicx
         }
     }).map ((eachMedicx) => {

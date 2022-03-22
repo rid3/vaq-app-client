@@ -17,6 +17,13 @@ import Details from "./public.pages/Details"
 import EditarPerfilMed from './pages.medicx/EditarPerfilMed';
 import EditarPerfilCli from "./pages.cliente/EditarPerfilCli"
 
+
+import MedicxList from "./chat/MedicxList.jsx"
+import Chat from "./chat/Chat"
+
+
+
+
 import { useEffect, useState } from "react"
 import { verifyService } from './services/auth.services';
 
@@ -86,6 +93,11 @@ function App() {
 
     <Route path="/error"  element = { <Error/> } />
     <Route path="*"    element = { <NotFound/> } />
+
+
+
+    <Route path="/user-list" element={<MedicxList/>} />
+     <Route path="/chat/:chatId" element={<Chat/>} />
 
 
     </Routes>
