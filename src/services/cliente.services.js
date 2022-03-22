@@ -10,6 +10,9 @@ service.interceptors.request.use((config) => {
     return config;
   })
 
+const perfilprivClienteService = (id) => {
+    return service.get(`/perfilcli/${id}`)
+} 
 
 const updatePerfilClienteService= (id, updatedPerfilCliente ) => {
     return service.patch(`/${id}`, updatedPerfilCliente)
@@ -27,5 +30,6 @@ const guardarService = (id) => {
 export  {
     updatePerfilClienteService,
     deleteCuentaClienteService,
-    guardarService
+    guardarService,
+    perfilprivClienteService
 }

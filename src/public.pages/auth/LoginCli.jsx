@@ -28,7 +28,7 @@ function Login(props) {
 
       const verifyUser = await verifyService()
       if (verifyUser.data.userRole === "cliente") {
-        navigate("/perfilcliente")
+        navigate("/")
       } else {
         navigate("/")
       }

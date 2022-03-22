@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { deleteCuentaClienteService, updatePerfilClienteService } from "../services/cliente.services"
+import { deleteCuentaClienteService, updatePerfilClienteService, perfilprivClienteService } from "../services/cliente.services"
 
 
 function EditarPerfilCli(props) {
@@ -16,11 +16,28 @@ function EditarPerfilCli(props) {
   const handlePronombres = (e) => setPronombres(e.target.value)
   const handleImgCliente = (e) => setImgCliente(e.target.value)
 
+  useEffect(() => {
+    getClienteDetails()
+  },[])
+
+  const getClienteDetails = async () => {
+
+    try {
+      const response = await perfilprivClienteService(id)
+      setNombre (response.data.nombre)
+      setPronombres(response.data.pronombres)
+      setImgCliente(response.data.imgCliente)
+    } catch (err) {
+      navigate("/error")
+    }
+  }
+
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await updatePerfilClienteService (id, { nombre, pronombres, imgCliente })
+     await updatePerfilClienteService (id, { nombre, pronombres, imgCliente })
       navigate("/")
 
         }catch(err) {
@@ -36,6 +53,8 @@ function EditarPerfilCli(props) {
     }
   } 
   
+
+
   return (
     <div>
 

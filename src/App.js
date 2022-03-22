@@ -26,13 +26,13 @@ function App() {
 
   const [ isLoggedIn, setIsLoggedIn ] = useState (false)
 
+  
   const [ isUserRole, setUserRole ] = useState(null)
-
   const [ isCliente, setIsCliente ] = useState(false)
-
   const [ isMedicx, setIsMedicx ] = useState(false)
-
   const [ userId, setUserId] = useState(null)
+
+
   
 
   useEffect(() => {
@@ -45,7 +45,8 @@ function App() {
      const response = await verifyService()
       setIsLoggedIn(true)
       setUserId(response.data.userId)
-      setUserRole(response.data.userRole) 
+      setUserRole(response.data.userRole)
+
       if (response.data.userRole === "cliente") {
         setIsCliente(true)
       }  else if (response.data.userRole === "medicx" ) {
@@ -77,11 +78,11 @@ function App() {
     <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser}/> } />
     <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} /> } />
 
-    <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId}/> } />
-    <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed /> } />
+    <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId} /> } />
+    <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed userId={userId} /> } />
 
-    <Route path="/perfilcliente" element = {<PerfilCliente userId={userId} /> } />
-    <Route path="/perfilcliente/edit/:id" element = { <EditarPerfilCli /> }/>
+    <Route path="/perfilcliente" element = {<PerfilCliente userId={userId}  /> } />
+    <Route path="/perfilcliente/edit/:id" element = { <EditarPerfilCli userId={userId} /> }/>
 
     <Route path="/error"  element = { <Error/> } />
     <Route path="*"    element = { <NotFound/> } />

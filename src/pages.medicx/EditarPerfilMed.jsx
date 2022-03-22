@@ -150,7 +150,7 @@ const handleFileUpload = (e) => {
     <div>
         <h2>Editando Perfil Público</h2>
 
-        <form onSubmit={ handleSubmit } encType="multipart/form-data" >
+        <form onSubmit={ handleSubmit } >
 
           <label htmlFor="nombreCompleto">Nombre Completo: </label>
           <input type="text" name="nombreCompleto" value={nombreCompleto} onChange = { handleNombreCompleto } />
