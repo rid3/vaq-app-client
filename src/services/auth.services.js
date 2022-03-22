@@ -32,9 +32,13 @@ const loginClienteService = (user) => {
     return service.post(`/login/cliente`, user)
 }
 
-const verifyService = () => {
-    return service.get("/verify")
+const verifyService = (payload) => {
+    return service.get("/verify", payload)
 }
+
+// const isClienteService = () => {
+//     return service.get("/iscliente")
+// }
 
 
 
@@ -43,6 +47,5 @@ export {
     singupClienteService,
     loginMedicxService,
     loginClienteService,
-    verifyService
-
+    verifyService,
 }

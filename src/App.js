@@ -21,6 +21,7 @@ import { useEffect, useState } from "react"
 import { verifyService } from './services/auth.services';
 
 
+
 function App() {
 
   const [ isLoggedIn, setIsLoggedIn ] = useState (false)
@@ -32,11 +33,16 @@ function App() {
     verifyUser()
   },[])
   
-  const verifyUser = async (props) => {
+  const verifyUser = async () => {
     //conectar con el server y validar el token
     try {
       await verifyService()
       setIsLoggedIn(true)
+      // if(props.role === "medicx") {
+      //   setIsMedicx(true)
+      // } else if (props.role === "cliente") {
+      //   setIsCliente(true)
+      // }
       // if (props.authToken.data.role === "medicx") {
       //   setIsMedicx(true)
       // } else if (props.authToken.data.role === "cliente") {
@@ -50,12 +56,27 @@ function App() {
     
   }
 
+  // useEffect(() => {
+  //   verifyCliente()
+  // },[])
+
+  // const verifyCliente = async () => {
+  //   try {
+  //     await isClienteService()
+  //     setIsCliente(true)
+  //   } catch (err) {
+  //     setIsCliente(false)
+  //   }
+  // } 
+  // MÁS PRUEBAS PARA ISCLIENT ISMEDICX CON AUTHTOKEN - algo con el localStorage?
+
+
   return (
     <div className="App">
 
     <Navbar 
     isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
-    // isCliente={isCliente} setIsCliente = {setIsCliente}
+    //  isCliente={isCliente} setIsCliente = {setIsCliente}
     // isMedicx={isMedicx} setIsMedicx = {setIsMedicx}
     />
 

@@ -19,7 +19,7 @@ function Login(props) {
       //conexión al server para hacer logIn
       const response = await loginClienteService(user)
       const { authToken } = response.data
-      console.log("authToken", authToken)
+      //console.log("authToken", authToken)
 
       //recibir el Token y guardarlo en localStorage
       localStorage.setItem ("authToken", authToken)

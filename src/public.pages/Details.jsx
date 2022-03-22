@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getDetailsService } from '../services/public.services'
+import { guardarService } from "../services/cliente.services"
 
 function Details() {
 
@@ -24,6 +25,18 @@ function Details() {
     }
   }
 
+  const handleGuardar = async () => {
+    try {
+      await guardarService(id)
+      navigate("/") //solo para ver si funciona
+    } catch (err) {
+      navigate("/error")
+    }
+  }
+
+
+
+
   if (!medicxDetails) {
     return <h3>...caragn2</h3>
   }
@@ -42,7 +55,10 @@ function Details() {
     Días y Horarios: {medicxDetails.diasYhorario}</p>
     <p>Atiende por: {medicxDetails.atiendePor}</p>
 
+    <button onClick={ handleGuardar }  >Guardar Médicx</button>
+    
     </div>
+
     
   )
 }

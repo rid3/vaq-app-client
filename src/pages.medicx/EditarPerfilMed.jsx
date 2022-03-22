@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteCuentaService, updatePerfilService } from '../services/medicx.services'
 import { getDetailsService } from '../services/public.services'
+import { uploadImage } from '../services/cloudinary.services'
 
 
 
@@ -18,6 +19,7 @@ function EditarPerfil() {
   const [ centroDeSalud, setCentroDeSalud ] = useState ("")
   const [ diasYhorario, setDiasYhorario ] = useState("")
   const [ atiendePor, setAtiendePor ] = useState("")
+  const [ contacto, setContacto ] = useState("")
 
   //recibe el input que pone el usuario
   const handleNombreCompleto = (e) => setNombreCompleto(e.target.value)
@@ -28,10 +30,11 @@ function EditarPerfil() {
   const handleCentroDeSalud = (e) => setCentroDeSalud (e.target.value)
   const handleDiasYhorario = (e) => setDiasYhorario (e.target.value)
   const handleAtiendePor = (e) => setAtiendePor (e.target.value)
+  const handleContacto = (e) => setContacto (e.target.value)
 
   //lidiar con imágenes
   const handleImgCapacitacion = (e) => setImgCapacitacion (e.target.value)
-  const handleImgMed = (e) => setImgMed (e.target.value)
+  // const handleImgMed = (e) => setImgMed (e.target.value)
 
   const { id } = useParams()
 
@@ -52,6 +55,9 @@ function EditarPerfil() {
       setCentroDeSalud(response.data.centroDeSalud)
       setDiasYhorario(response.data.diasYhorario)
       setAtiendePor(response.data.atiendePor)
+      setContacto(response.data.contacto)
+      setImgMed(response.data.imgMed)
+      setImgCapacitacion(response.data.imgCapacitacion)
     } catch (err) {
       navigate("/error")
     }
@@ -84,7 +90,20 @@ function EditarPerfil() {
   //   })
   //   .catch(err => console.log("error al cargar la imagen", err));
   // }
+// SALE LA TERCERA PRUEBITAAA----------------------------------------------
 
+
+const handleFileUpload = (e) => {
+  const uploadData = new FormData ();
+  uploadData.append("imgMed", e.target.files[0])
+
+  uploadImage(uploadData)
+  .then ( response => {
+    setImgMed(response.fileUrl);
+  })
+  .catch (err => console.log("error uploading la img", err)) 
+
+}
   //-----------------------------------------------------------
 
 
@@ -92,7 +111,7 @@ function EditarPerfil() {
     e.preventDefault()
 
     try {
-     await updatePerfilService (id, { nombreCompleto, especializacion, capacitaciones, provincia, ciudad, centroDeSalud, diasYhorario, atiendePor, imgMed, imgCapacitacion})
+     await updatePerfilService (id, { nombreCompleto, especializacion, capacitaciones, provincia, ciudad, centroDeSalud, diasYhorario, atiendePor, imgMed, imgCapacitacion, contacto})
       navigate("/")
     } catch (err) {
       navigate("/error")
@@ -153,7 +172,7 @@ function EditarPerfil() {
           <br />
           <br />
           <label htmlFor="imgMed">Img de Perfil: </label>
-          <input type="file" name="imgMed" value= {imgMed} onChange = { handleImgMed } />
+          <input type="file" name="imgMed" value= {imgMed} onChange = { (e) => handleFileUpload(e) } />
           <br />
           <br /> 
 
@@ -179,6 +198,12 @@ function EditarPerfil() {
 
           <label htmlFor="atiendePor">Atiende por (obras sociales, particular, ambos): </label>
           <input type="text" name="atiendePor" value={atiendePor} onChange = { handleAtiendePor }/>
+          <br />
+          <br />
+
+    
+          <label htmlFor="contacto">Contacto: </label>
+          <input type="text" name="contacto" value={contacto} onChange = { handleContacto }/>
           <br />
           <br />
 

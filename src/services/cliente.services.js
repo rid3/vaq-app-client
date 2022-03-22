@@ -19,9 +19,13 @@ const deleteCuentaClienteService = (id) => {
     return service.delete(`${id}`)
 }
 
+const guardarService = (id) => {
+    return service.post(`/${id}/guardar`)
+}
 
 
 export  {
     updatePerfilClienteService,
-    deleteCuentaClienteService
+    deleteCuentaClienteService,
+    guardarService
 }
