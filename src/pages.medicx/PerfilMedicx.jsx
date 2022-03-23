@@ -6,11 +6,12 @@ function PerfilMedicx (props) {
 
 const { userId } = props
 
+
 const navigate = useNavigate()
 
 const [ useNombreCompleto, setNombreCompleto ] = useState(null)
 
-// props.setIsMedicx(true)
+
 
 useEffect (() => {
   getMedicxDetails()
@@ -20,13 +21,12 @@ const getMedicxDetails = async () => {
   try {
     const response = await getDetailsService(userId)
     setNombreCompleto(response.data.nombreCompleto)
-   
   } catch (err) {
     navigate("/error")
   }
 }
 
-if (!userId || !useNombreCompleto) {
+if (!userId) {
   return <h3>...cargan2</h3>
 }
 

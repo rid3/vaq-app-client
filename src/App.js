@@ -82,10 +82,10 @@ function App() {
     <Route path="/perfilesmed" element = { <PerfilesMed /> } />
     <Route path="/:id/details" element = { <Details isCliente={isCliente} setIsCliente={setIsCliente}/> } />
 
-    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} setIsMedicx={setIsMedicx} /> } />
+    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} setIsMedicx={setIsMedicx} isMedicx={isMedicx}/> } />
     <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} setIsCliente={setIsCliente} /> } />
 
-    <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId} setIsMedicx={setIsMedicx}/> } />
+    <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId} setIsMedicx={setIsMedicx} isMedicx={isMedicx}/> } />
     <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed userId={userId} /> } />
 
     <Route path="/perfilcliente" element = {<PerfilCliente userId={userId} setIsCliente={setIsCliente} /> } />

@@ -59,6 +59,7 @@ function Details(props) {
     <p>Guardias en: {medicxDetails.centroDeSalud} <br />
     Días y Horarios: {medicxDetails.diasYhorario}</p>
     <p>Atiende por: {medicxDetails.atiendePor}</p>
+    <p>Contacto: {medicxDetails.contacto}</p>
 
     { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
     

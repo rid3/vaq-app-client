@@ -37,17 +37,24 @@ function PerfilCliente(props) {
     <div>
         <h1>Bienvenidx {useClienteDetails} a tu perfil como cliente</h1>
 
-        <h3>¡Gracias por formar parte de esta red! <br /> Si llegas a tener algún inconveniente con algunx de les profesionales que se encuentran en nuestro listado, por favor mandanos un mail a : vamoaquidarno@gmail.com</h3>
-
-        {/* { useMedicxs.map((eachMedicx) => {
+        <h5>¡Gracias por formar parte de esta red! <br /> Si llegas a tener algún inconveniente con algunx de les profesionales que se encuentran en nuestro listado, por favor mandanos un mail a : vamoaquidarno@gmail.com</h5>
+        <hr /><hr />
+        <h2>Médicxs guardadxs: </h2>
+        { useMedicxs && 
+          useMedicxs.map((eachMedicx) => {
           return (
             <div key = {eachMedicx._id}>
-        <p>Médicxs guardadxs: {eachMedicx.nombreCompleto}</p>
+        <p><b>{eachMedicx.nombreCompleto}</b></p>
+        <p>Especialización: {eachMedicx.especializacion}</p>
+        <p>Contacto: {eachMedicx.contacto}</p>
             </div>
           )
         })
-        } */}
-
+        }
+        <br />
+        <br />
+        <hr />
+        <hr />
 
         <Link to={`/perfilcliente/edit/${userId}`}>Editar Perfil</Link>
     </div>

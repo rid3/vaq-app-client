@@ -30,8 +30,8 @@ function Login(props) {
 
       const verifyUser = await verifyService()
       if (verifyUser.data.userRole === "cliente") {
-        // props.setIsCliente(true) también se rompe en el perfil privado
-        navigate("/perfilcliente")
+       props.setIsCliente(true) // también se rompe en el perfil privado
+        navigate("/")
       } else {
         props.setIsCliente(false)
         navigate("/")

@@ -29,8 +29,8 @@ function Login(props) {
 
       const verifyUser = await verifyService()
       if (verifyUser.data.userRole === "medicx") {
-        // props.setIsMedicx(true) si se lo agrego no me deja entrar a la página de perfil privado, me da el link en el nav pero nda mas 
-        navigate("/perfilmedicx")
+      // props.setIsMedicx(true) // si se lo agrego no me deja entrar a la página de perfil privado, me da el link en el nav pero nda mas 
+        navigate("/")
       } else {
         props.setIsMedicx(false)
         navigate("/")
