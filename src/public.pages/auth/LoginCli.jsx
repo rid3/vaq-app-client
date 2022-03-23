@@ -24,18 +24,20 @@ function Login(props) {
 
       //recibir el Token y guardarlo en localStorage
       localStorage.setItem ("authToken", authToken)
-      props.setIsLoggedIn(true)
-
+      
       // props.setIsCliente(true)
-
-      const verifyUser = await verifyService()
-      if (verifyUser.data.userRole === "cliente") {
-       props.setIsCliente(true) // también se rompe en el perfil privado
-        navigate("/")
-      } else {
-        props.setIsCliente(false)
-        navigate("/")
-      }
+      await props.verifyUser()
+      // props.setIsLoggedIn(true)
+      // props.setIsCliente(true)
+      navigate("/")
+      // const verifyUser = await verifyService()
+      // if (verifyUser.data.userRole === "cliente") {
+      //  props.setIsCliente(true) // también se rompe en el perfil privado
+      //   navigate("/")
+      // } else {
+      //   props.setIsCliente(false)
+      //   navigate("/")
+      // }
 
     } catch(err){
       if(err?.response?.status === 400) {

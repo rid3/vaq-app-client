@@ -34,7 +34,7 @@ function App() {
   const [ isLoggedIn, setIsLoggedIn ] = useState (false)
 
   
-  const [ isUserRole, setUserRole ] = useState(null)
+  // const [ isUserRole, setUserRole ] = useState(null)
   const [ isCliente, setIsCliente ] = useState(false)
   const [ isMedicx, setIsMedicx ] = useState(false)
   const [ userId, setUserId] = useState(null)
@@ -52,7 +52,7 @@ function App() {
      const response = await verifyService()
       setIsLoggedIn(true)
       setUserId(response.data.userId)
-      setUserRole(response.data.userRole)
+      // setUserRole(response.data.userRole)
 
       if (response.data.userRole === "cliente") {
         setIsCliente(true)
@@ -61,6 +61,9 @@ function App() {
       }
     } catch (err) {
       setIsLoggedIn(false)
+      setIsMedicx(false)
+      setIsCliente(false)
+      setUserId(null)
     } 
   }
 
@@ -82,14 +85,14 @@ function App() {
     <Route path="/perfilesmed" element = { <PerfilesMed /> } />
     <Route path="/:id/details" element = { <Details isCliente={isCliente} setIsCliente={setIsCliente}/> } />
 
-    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} setIsMedicx={setIsMedicx} isMedicx={isMedicx}/> } />
-    <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} isUserRole={isUserRole} verifyUser = {verifyUser} setIsCliente={setIsCliente} /> } />
+    <Route path="/login/medicx"  element = { <LoginMed setIsLoggedIn={setIsLoggedIn} verifyUser = {verifyUser} setIsMedicx={setIsMedicx} /> } />
+    <Route path="/login/cliente" element = { <LoginCli setIsLoggedIn={setIsLoggedIn} verifyUser = {verifyUser} setIsCliente={setIsCliente} /> } />
 
     <Route path="/perfilmedicx" element = {<PerfilMedicx userId={userId} setIsMedicx={setIsMedicx} isMedicx={isMedicx}/> } />
-    <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed userId={userId} /> } />
+    <Route path="/perfilmedicx/edit/:id" element = { <EditarPerfilMed verifyUser={verifyUser} userId={userId} setIsLoggedIn={setIsLoggedIn} setIsMedicx={setIsMedicx} /> } />
 
     <Route path="/perfilcliente" element = {<PerfilCliente userId={userId} setIsCliente={setIsCliente} /> } />
-    <Route path="/perfilcliente/edit/:id" element = { <EditarPerfilCli userId={userId} /> }/>
+    <Route path="/perfilcliente/edit/:id" element = { <EditarPerfilCli userId={userId} setIsLoggedIn={setIsLoggedIn} setIsCliente={setIsCliente} /> }/>
 
     <Route path="/error"  element = { <Error/> } />
     <Route path="*"    element = { <NotFound/> } />

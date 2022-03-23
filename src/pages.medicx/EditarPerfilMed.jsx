@@ -6,7 +6,7 @@ import { uploadImage } from '../services/cloudinary.services'
 
 
 
-function EditarPerfil() {
+function EditarPerfil(props) {
 
   //controlo la información que voy a manejar
   const [ nombreCompleto, setNombreCompleto ] = useState("")
@@ -33,7 +33,7 @@ function EditarPerfil() {
   const handleContacto = (e) => setContacto (e.target.value)
 
   //lidiar con imágenes
-  const handleImgCapacitacion = (e) => setImgCapacitacion (e.target.value)
+  // const handleImgCapacitacion = (e) => setImgCapacitacion (e.target.value)
   // const handleImgMed = (e) => setImgMed (e.target.value)
 
   const { id } = useParams()
@@ -93,13 +93,19 @@ function EditarPerfil() {
 // SALE LA TERCERA PRUEBITAAA----------------------------------------------
 
 
-const handleFileUpload = (e) => {
+const handleFileUpload = (e, type) => {
   const uploadData = new FormData ();
-  uploadData.append("imgMed", e.target.files[0])
+  uploadData.append("imagen", e.target.files[0])
 
   uploadImage(uploadData)
   .then ( response => {
-    setImgMed(response.fileUrl);
+    console.log(response.data)
+    if (type === "imgMed") {
+      setImgMed(response.data.fileUrl);
+    } else if ( type === "imgCapacitacion") {
+      setImgCapacitacion(response.data.fileUrl)
+    }
+    // condicionas el estado al que se agregará el image url dependiendo del parametro type
   })
   .catch (err => console.log("error uploading la img", err)) 
 
@@ -134,11 +140,14 @@ const handleFileUpload = (e) => {
   //   })
   //   .catch(err=> console.log("error while uploading", err))
   // }
-
   
   const handleClick = async () => {
     try {
       await deleteCuentaService(id)
+      props.setIsLoggedIn(false)
+      props.setIsMedicx(false)
+      localStorage.removeItem("authToken")
+     
       navigate("/")
     } catch(err){
       navigate("/error")
@@ -167,14 +176,17 @@ const handleFileUpload = (e) => {
           <br />
           <br />
 
-          <label htmlFor="imgCapacitacion">Img Credenciales Capacitación: </label>
-          <input type="file" name="imgCapacitacion" value = { imgCapacitacion } onChange = { handleImgCapacitacion }/> 
+          <label htmlFor="imgCapacitacion">Credenciales Capacitación (formato "img" o "png"): </label>
+          <input type="file" name="imgCapacitacion"  onChange = { (e) => handleFileUpload(e, "imgCapacitacion") }/> 
+
           <br />
           <br />
           <label htmlFor="imgMed">Img de Perfil: </label>
-          <input type="file" name="imgMed" value= {imgMed} onChange = { (e) => handleFileUpload(e) } />
+          <input type="file" name="imgMed" onChange = { (e) => handleFileUpload(e, "imgMed") } />
+          { imgMed && <img src={imgMed} alt="perfil" width={"100px"}/>}
           <br />
           <br /> 
+
 
           <label htmlFor="provincia">Provincia: </label>
           <input type="text" name="provincia" value={provincia} onChange = { handleProvincia } />

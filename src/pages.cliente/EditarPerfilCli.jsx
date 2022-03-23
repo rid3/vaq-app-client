@@ -48,6 +48,9 @@ function EditarPerfilCli(props) {
   const handleOnClick = async () =>  {
     try {
       await deleteCuentaClienteService(id)
+      props.setIsLoggedIn(false)
+      props.setIsCliente(false)
+      localStorage.removeItem("authToken")
     } catch(err) {
       navigate("/error")
     }

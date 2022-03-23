@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { loginMedicxService, verifyService } from '../../services/auth.services';
+import { loginMedicxService} from '../../services/auth.services';
 
 function Login(props) {
 
@@ -16,26 +16,17 @@ function Login(props) {
     const user = { email, password }
     try {
 
-      //conexión al server para hacer logIn
+
       const response = await loginMedicxService(user)
       const { authToken } = response.data
-      //console.log("authToken", authToken)
-
-      //recibir el Token y guardarlo en localStorage
+     
       localStorage.setItem ("authToken", authToken)
-      props.setIsLoggedIn(true)
+  
 
-      // props.setIsMedicx(true)
+      await props.verifyUser()
+      navigate("/")
 
-      const verifyUser = await verifyService()
-      if (verifyUser.data.userRole === "medicx") {
-      // props.setIsMedicx(true) // si se lo agrego no me deja entrar a la página de perfil privado, me da el link en el nav pero nda mas 
-        navigate("/")
-      } else {
-        props.setIsMedicx(false)
-        navigate("/")
-      }
-
+    
 
     } catch(err){
       if(err?.response?.status === 400) {

@@ -30,6 +30,7 @@ function Chat() {
 
     socket.on("receive_message", (newMessage) => {
       setAllMessages(previousState => {
+        console.log(newMessage)
         const newState = [...previousState, newMessage]
         return newState
       })

@@ -48,12 +48,10 @@ function Details(props) {
 
   return (
     <div>
-
+    <img src={medicxDetails.imgMed} alt="foto" width={"50px"} />
     <h4>{medicxDetails.nombreCompleto}</h4>
-    <img src={medicxDetails.imgMed} alt="foto" />
     <p>Especializacion: {medicxDetails.especializacion}</p>
     <p>Capacitacion en género: {medicxDetails.capacitaciones}</p>
-    <p>Acreditación: {medicxDetails.imgCapacitaciones}</p>
     <p>Provincia: {medicxDetails.provincia}</p>
     <p>Ciudad: {medicxDetails.ciudad}</p>
     <p>Guardias en: {medicxDetails.centroDeSalud} <br />
@@ -62,7 +60,8 @@ function Details(props) {
     <p>Contacto: {medicxDetails.contacto}</p>
 
     { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
-    
+    <p>Acreditación de capacitación:</p>
+    <img src={medicxDetails.imgCapacitaciones} alt="acreditación" width={"30px"} height={"30px"}/>
     </div>
 
     
