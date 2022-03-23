@@ -4,12 +4,16 @@ body {
   justify-content:center;
   min-width: 100vw;
   min-height: 100vh;
-  background-image: "../public/fondo.jpg";
-}
-
-.App {
-  display:flex;
-  justify-content: center;
+  background: black;
+  background-image: linear-gradient(to right, rgb(147, 61, 61),rgb(152, 116, 54),rgb(142, 142, 83),rgb(88, 118, 88),rgb(60, 60, 143),rgb(93, 38, 131),rgb(101, 77, 101)); 
+  
+  background-size: 100% 100%;
+  }
+  
+    
+    .App {
+      display:flex;
+      justify-content: center;
   text-align: center;
   flex-direction: column;
   font-family: monospace;
