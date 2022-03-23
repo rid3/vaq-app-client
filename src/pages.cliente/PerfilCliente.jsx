@@ -10,6 +10,7 @@ function PerfilCliente(props) {
   const [ useMedicxs, setMedicxs ] = useState(null)
   const navigate = useNavigate()
 
+  // props.setIsCliente(true)
 
   useEffect (() => {
     getClienteDetails()
@@ -21,12 +22,13 @@ function PerfilCliente(props) {
       const response = await perfilprivClienteService (userId)
       setClienteDetails(response.data.nombre)
       setMedicxs (response.data.medicxs)
+      //console.log(response.data.medicxs.nombreCompleto) => da error
     } catch (err) {
       navigate("/error")
     }
   }
 
-  if (!userId) {
+  if (!userId || !useClienteDetails) {
     return <h3>...cargan2</h3>
   }
 
@@ -37,7 +39,14 @@ function PerfilCliente(props) {
 
         <h3>¡Gracias por formar parte de esta red! <br /> Si llegas a tener algún inconveniente con algunx de les profesionales que se encuentran en nuestro listado, por favor mandanos un mail a : vamoaquidarno@gmail.com</h3>
 
-        <p>Médicxs guardadxs: {useMedicxs}</p>
+        {/* { useMedicxs.map((eachMedicx) => {
+          return (
+            <div key = {eachMedicx._id}>
+        <p>Médicxs guardadxs: {eachMedicx.nombreCompleto}</p>
+            </div>
+          )
+        })
+        } */}
 
 
         <Link to={`/perfilcliente/edit/${userId}`}>Editar Perfil</Link>

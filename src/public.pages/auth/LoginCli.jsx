@@ -26,10 +26,14 @@ function Login(props) {
       localStorage.setItem ("authToken", authToken)
       props.setIsLoggedIn(true)
 
+      // props.setIsCliente(true)
+
       const verifyUser = await verifyService()
       if (verifyUser.data.userRole === "cliente") {
-        navigate("/")
+        // props.setIsCliente(true) también se rompe en el perfil privado
+        navigate("/perfilcliente")
       } else {
+        props.setIsCliente(false)
         navigate("/")
       }
 

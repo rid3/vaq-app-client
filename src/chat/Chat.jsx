@@ -42,6 +42,7 @@ function Chat() {
     try {
       const response = await getAllMessagesService(chatId)
       setAllMessages(response.data)
+      //console.log("ACAAAAA", response.data)
     } catch(err) {
       navigate("/error")
     }
@@ -61,14 +62,16 @@ function Chat() {
   return (
     <div>
       <h3>Red de Medicxs</h3>
+      <hr /><hr /><hr />
 
         <div>
           {allMessages.map((eachMessage) => {
               return (
                 <div key={eachMessage._id}>
                   <p>{eachMessage.sender.nombreCompleto}: {eachMessage.text}</p>
-
+                  <hr />
                 </div>
+                
               );
             })}
         </div>
@@ -82,6 +85,8 @@ function Chat() {
             onChange={handleChange}
           />
           <button onClick={sendMessage}>Enviar</button>
+          <br /><br />
+          <hr /><hr /><hr />
         </div>
     </div>
   );

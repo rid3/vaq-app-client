@@ -31,6 +31,7 @@ function Details(props) {
 
   const handleGuardar = async () => {
     try {
+      
       await guardarService(id)
       navigate("/") //solo para ver si funciona
     } catch (err) {

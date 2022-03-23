@@ -25,10 +25,14 @@ function Login(props) {
       localStorage.setItem ("authToken", authToken)
       props.setIsLoggedIn(true)
 
+      // props.setIsMedicx(true)
+
       const verifyUser = await verifyService()
       if (verifyUser.data.userRole === "medicx") {
-        navigate("/")
+        // props.setIsMedicx(true) si se lo agrego no me deja entrar a la página de perfil privado, me da el link en el nav pero nda mas 
+        navigate("/perfilmedicx")
       } else {
+        props.setIsMedicx(false)
         navigate("/")
       }
 

@@ -10,6 +10,8 @@ const navigate = useNavigate()
 
 const [ useNombreCompleto, setNombreCompleto ] = useState(null)
 
+// props.setIsMedicx(true)
+
 useEffect (() => {
   getMedicxDetails()
 }, [])
@@ -24,7 +26,7 @@ const getMedicxDetails = async () => {
   }
 }
 
-if (!userId) {
+if (!userId || !useNombreCompleto) {
   return <h3>...cargan2</h3>
 }
 
