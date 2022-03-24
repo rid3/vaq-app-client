@@ -39,19 +39,15 @@ function UserList() {
   return (
     <div>
       <h1>Medicxs</h1>
-      <hr />
-      <hr />
+    
 
       {users.map((eachUser) => {
           return (
-            <div key={eachUser._id}>
+            <div className= "medicxsListChat"  key={eachUser._id}>
               <h2><b>Nombre:</b> <Link to ={`/${eachUser._id}/details`}>{eachUser.nombreCompleto}</Link></h2>
               <p><b>Especialización:</b> {eachUser.especializacion}</p>
               <p><b>Provincia:</b> {eachUser.provincia}</p>
               <button onClick={() => handleClick(eachUser)}>Enviar Mensaje</button>
-              <hr />
-              <hr />
-              <hr />
             </div>
           );
         })

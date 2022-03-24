@@ -53,7 +53,7 @@ function EditarPerfilCli(props) {
   } 
 
   return (
-    <div>
+    <div className="editcli" >
 
     <h2>Editar Perfil</h2>
 
@@ -68,7 +68,7 @@ function EditarPerfilCli(props) {
     <input type="text" name="pronombres" value={pronombres} onChange={ handlePronombres } />
     <br />
     <br />
-
+    <br />
     
     <button>Editar Perfil</button>
     <br />

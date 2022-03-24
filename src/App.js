@@ -2,7 +2,6 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 //import routes:
 import Home from "../src/public.pages/Home"
-import Navbar from './components/Navbar';
 import SignUp from './public.pages/auth/SignUp';
 import LoginMed from './public.pages/auth/LoginMed';
 import LoginCli from "./public.pages/auth/LoginCli"

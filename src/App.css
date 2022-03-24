@@ -1,49 +1,47 @@
 body {
-  /* margin:0px;
-  display:flex;
-  justify-content:center;
-  min-width: 100vw;
-  min-height: 100vh; POR NAV LO SILENCIÉ*/
   background: black;
-  background-image: linear-gradient(to right, rgb(147, 61, 61),rgb(152, 116, 54),rgb(142, 142, 83),rgb(88, 118, 88),rgb(60, 60, 143),rgb(93, 38, 131),rgb(101, 77, 101)); 
+  background-image: linear-gradient(to right, rgb(147, 61, 61),rgb(152, 116, 54),rgb(142, 142, 83),rgb(88, 118, 88),rgb(75, 75, 148),rgb(100, 53, 133),rgb(101, 77, 101)); 
   
   background-size: 100% 100%;
   }
+  
+  .App {
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: monospace;
+  }
+  
+  .App input {
+    margin-top: 20px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    padding-left: 10px;
+    box-shadow: 10px 5px 5px black;
+    border-radius: 10px;
 
-    .App {
-      display:flex;
-      justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  font-family: monospace;
+  }
+  
+  /* GENERALES--------------------- */
+
+button {
+  font-size: 12px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  background-color: lightpink;
+  color:black;
+  border: 2px solid purple;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
 
-.App input {
-  margin-top: 20px;
-  width: 300px;
-  height: 40px;
-  font-size: 20px;
-  padding-left: 10px;;
+h1 {
+  margin:30px;
 }
-
 p {
   margin: 10px;
   font-size: 18px;
-}
-
-button {
-font-size: 12px;
-padding: 10px 24px;
-border-radius: 4px;
-background-color: lightpink;
-color:black;
-border: 2px solid purple;
-box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
-}
-
-/* GENERALES--------------------- */
-h1 {
-  margin:30px;
 }
 
 /* FIN GENERALES--------------------- */
@@ -58,7 +56,114 @@ h1 {
   font-size: 30px;
   
 }
-
 /* FIN  SIGN UP---------------------- */
 
+/* HOME PERFILES MED------------------------------- */
+.perfilesMed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.cardHome{
+  background-color: rgb(235, 201, 206); 
+}
+.medicx{
+  background-color: rgb(150, 167, 235);
+}
+.medicxsListChat{
+  background-color: rgb(118, 199, 205);
+}
+
+
+.cardHome , .medicx, .medicxsListChat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;  
+  padding: 10px;
+  border-radius: 90px;
+  
+  text-align: center;
+  flex-wrap: wrap;
+
+}
+
+@media (max-width: 1024px) {
+  .cardHome , .medicx{
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardHome , .medicx {
+    width: 50%;
+  }
+}
+
+@media (max-width: 528px) {
+  .cardHome , .medicx {
+    width: 80%;
+  }
+}
+
+
+/* FIN HOME PERFILESMED---------------------------- */
+
+/* DETAILS MED-------------------------------- */
+
+.details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.imgDetails{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+
+/* FIN DETAILS MED-------------------------- */
+
+/* EDIT PERFILES------------------------------- */
+
+.editcli {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.editMed {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 50px;
+
+} 
+
+
+/* FIN EDIT PERFILES---------------------- */
+
+/* CHAT---------------------------- */
+/* .medicxsListChat {
+  display:flex;
+  justify-content: ;
+  align-items: center;
+  flex-direction: column;
+
+
+
+} */
+/* FINCHAT */

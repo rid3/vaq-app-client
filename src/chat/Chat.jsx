@@ -62,22 +62,23 @@ function Chat() {
 
   return (
     <div>
-      <h3>Red de Medicxs</h3>
-      <hr /><hr /><hr />
+      <h1>Red de Medicxs</h1>
+      <hr />
 
-        <div>
+        {/* <div className="chatMed" > */}
           {allMessages.map((eachMessage) => {
               return (
-                <div key={eachMessage._id}>
+                <div className="chatMed"  key={eachMessage._id}>
                   <p>{eachMessage.sender.nombreCompleto}: {eachMessage.text}</p>
-                  <hr />
+                  <br />
+                  <br />
                 </div>
-                
               );
             })}
-        </div>
+        {/* </div> */}
 
         <div>
+          <hr /><hr /><hr />
           <input
             type="text"
             placeholder="Message..."
@@ -86,8 +87,10 @@ function Chat() {
             onChange={handleChange}
           />
           <button onClick={sendMessage}>Enviar</button>
-          <br /><br />
-          <hr /><hr /><hr />
+          <br />
+          <br />
+          <br />
+          <hr /> <hr /><hr />
         </div>
     </div>
   );

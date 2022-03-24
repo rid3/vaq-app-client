@@ -104,7 +104,7 @@ const handleFileUpload = (e, type) => {
 
 
   return (
-    <div>
+    <div className='editMed' >
         <h2>Editando Perfil Público</h2>
 
         <form onSubmit={ handleSubmit } >
@@ -119,21 +119,12 @@ const handleFileUpload = (e, type) => {
          <br />
          <br />
 
-          <label htmlFor="capacitaciones">Capacitaciones: </label>
-          <input type="text" name="capacitaciones" value={capacitaciones} onChange = { handleCapacitaciones } />
-          <br />
-          <br />
 
-          <label htmlFor="imgCapacitacion">Credenciales Capacitación (formato "img" o "png"): </label>
+          {/* <label htmlFor="imgCapacitacion">Credenciales Capacitación (formato "img" o "png"): </label>
           <input type="file" name="imgCapacitacion"  onChange = { (e) => handleFileUpload(e, "imgCapacitacion") }/> 
 
           <br />
-          <br />
-          <label htmlFor="imgMed">Img de Perfil: </label>
-          <input type="file" name="imgMed" onChange = { (e) => handleFileUpload(e, "imgMed") } />
-          { imgMed && <img src={imgMed} alt="perfil" width={"100px"}/>}
-          <br />
-          <br /> 
+          <br />  */}
 
 
           <label htmlFor="provincia">Provincia: </label>
@@ -167,6 +158,17 @@ const handleFileUpload = (e, type) => {
           <br />
           <br />
 
+          <label htmlFor="capacitaciones">Capacitaciones: </label>
+          <input type="text" name="capacitaciones" value={capacitaciones} onChange = { handleCapacitaciones } />
+          <br />
+          <br />
+          <label htmlFor="imgMed">Credenciales Capacitación (formato "img" o "png"): </label>
+          <input type="file" name="imgMed" onChange = { (e) => handleFileUpload(e, "imgMed") } />
+          <br />
+          <br />
+          { imgMed && <img src={imgMed} alt="perfil" width={"100px"}/>}
+          <br />
+          <br />
 
           <button>Editar Perfil</button>
           <br />

@@ -34,8 +34,10 @@ function PerfilCliente(props) {
     <div>
         <h1>Bienvenidx {useClienteDetails} a tu perfil como cliente</h1>
 
-        <h5>¡Gracias por formar parte de esta red! <br /> Si llegas a tener algún inconveniente con algunx de les profesionales que se encuentran en nuestro listado, por favor mandanos un mail a : vamoaquidarno@gmail.com</h5>
+        <h3>¡Gracias por formar parte de esta red! <br /> Si llegas a tener algún inconveniente con algunx de les profesionales que se encuentran en nuestro listado, por favor mandanos un mail a : vamoaquidarno@gmail.com</h3>
         <hr /><hr />
+        <br />
+        <br />
         <h2>Médicxs guardadxs: </h2>
         { useMedicxs && 
           useMedicxs.map((eachMedicx) => {

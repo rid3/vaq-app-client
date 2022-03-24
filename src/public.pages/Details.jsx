@@ -43,21 +43,38 @@ function Details(props) {
   }
 
   return (
-    <div>
-    <img src={medicxDetails.imgMed} alt="foto" width={"50px"} />
-    <h4>{medicxDetails.nombreCompleto}</h4>
+
+    <div className='details' >
+
+    <h1>{medicxDetails.nombreCompleto}</h1>
+    <hr />
     <p>Especializacion: {medicxDetails.especializacion}</p>
+    <hr />
     <p>Capacitacion en género: {medicxDetails.capacitaciones}</p>
+    <hr />
     <p>Provincia: {medicxDetails.provincia}</p>
+    <hr />
     <p>Ciudad: {medicxDetails.ciudad}</p>
-    <p>Guardias en: {medicxDetails.centroDeSalud} <br />
-    Días y Horarios: {medicxDetails.diasYhorario}</p>
+    <hr />
+    <p>Guardias en: {medicxDetails.centroDeSalud}</p> <br />
+    <hr />
+    <p>Días y Horarios: {medicxDetails.diasYhorario}</p>
+    <hr />
     <p>Atiende por: {medicxDetails.atiendePor}</p>
+    <hr />
     <p>Contacto: {medicxDetails.contacto}</p>
+    <hr />
+
 
     { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
-    <p>Acreditación de capacitación:</p>
+
+    <div className='imgDetails'>
+    <img src={medicxDetails.imgMed} alt="foto" width={"50%"} />
     <img src={medicxDetails.imgCapacitaciones} alt="acreditación" width={"30px"} height={"30px"}/>
+
+    </div>
+
+    {/* <p>Acreditación de capacitación:</p> */}
     </div>
 
     

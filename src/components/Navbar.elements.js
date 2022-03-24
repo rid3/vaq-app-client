@@ -63,6 +63,7 @@ list-style: none;
 `;
 
 export const MenuItem = styled.li`
+margin-left: 5px;
 height: 100%;
 
 @media screen and (max-width:960px) {
@@ -83,11 +84,12 @@ align-items: center;
 height: 100%;
 padding: 0.5rem 2,5rem;
 color: black;
-font-family: sans-serif;
+font-family: monospace;
 font-size: 1rem;
 font-weight:300;
 cursor: pointer;
 transition: 0.5s all ease;
+margin-left: 20px;
 
 & :hover {
     color: #fff;

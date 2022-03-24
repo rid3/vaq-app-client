@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom"; 
 import { Container, LogoContainer, Wrapper, Menu, MenuItem, MenuItemLink, MobileIcon  } from "./Navbar.elements"
-import {FaRainbow, FaBandAid, FaHome, FaCaretRight, FaExclamation, FaTimes} from "react-icons/fa"
+import {FaRainbow, FaBandAid, FaTimes} from "react-icons/fa"
 import {IconContext } from "react-icons"
 import { useState } from "react"
 
@@ -31,7 +31,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
         <Wrapper>
         <IconContext.Provider value={{ style: {fontSize: "2em"} }} >
             <LogoContainer>
-            <FaRainbow />
+            <NavLink to="/">  <FaRainbow /></NavLink>
             <p></p>
             <p>V.A.Q.</p>
             </LogoContainer>
@@ -51,12 +51,12 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                     {/* <div>
                     <FaHome/>
                     <a href="/">Home</a> */}
-                   <NavLink to="/"> Home </NavLink>
+                   {/* <NavLink to="/"> Home </NavLink> */}
                     {/* </div> */}
                     </MenuItemLink>
                 </MenuItem>
 
-                <MenuItem>
+                <MenuItem >
                     <MenuItemLink>
                     {/* <div>
                     <FaCaretRight/>
@@ -128,8 +128,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
 
                 <MenuItem>
                     <MenuItemLink>
-                    {/* <div>
-                    <FaExclamation/> */}
+            
                     { isLoggedIn && <button onClick={ handleClick } >Log Out</button> }
                     {/* </div> */}
                     </MenuItemLink>

@@ -29,7 +29,7 @@ function PerfilesMed() {
     }
 
   return (  
-  <div>
+  <div className="perfilesMed" >
   <br />
   <br />
 
@@ -46,7 +46,7 @@ function PerfilesMed() {
     }).map ((eachMedicx) => {
         return (
             <div className="medicx" key = {eachMedicx._id} >
-            <h3>{eachMedicx.nombreCompleto}</h3>
+            <h3>{eachMedicx.nombreCompleto} </h3>
             <p>Especializacion: {eachMedicx.especializacion}</p>
             <p>Provincia: {eachMedicx.provincia}</p>
             <Link to={`/${eachMedicx._id}/details`}>Más Información</Link>
