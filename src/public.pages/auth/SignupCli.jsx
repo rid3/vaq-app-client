@@ -75,6 +75,7 @@ function SignupCli() {
         value={passwordCliente}
         onChange= { (event) => setPasswordCliente (event.target.value) }
          /> 
+         <p>La contraseña debe contener aunquesea: una letra minúscula, una mayúscula, un carácter y un número.</p>
 
 <br />
          <br />

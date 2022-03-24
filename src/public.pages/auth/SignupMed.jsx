@@ -58,15 +58,6 @@ function SignupMed() {
             onChange= { (event) => setEmail (event.target.value) }
             />
 
-            <br />
-            <br />
-            <label htmlFor="password">Password: </label>
-            <input 
-            type="password" 
-            name="password" 
-            value={password} 
-            onChange= { (event) => setPassword (event.target.value) }
-            />     
 
             <br />
             <br />
@@ -87,6 +78,16 @@ function SignupMed() {
             value={capacitaciones} 
             onChange= { (event) => setCapacitaciones (event.target.value) }
             />
+            <br />
+            <br />
+            <label htmlFor="password">Password: </label>
+            <input 
+            type="password" 
+            name="password" 
+            value={password} 
+            onChange= { (event) => setPassword (event.target.value) }
+            />
+            <p>La contraseña debe contener aunquesea: una letra minúscula, una mayúscula, un carácter y un número.</p>     
             <br />
             <br />
             <br />

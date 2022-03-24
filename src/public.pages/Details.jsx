@@ -70,8 +70,6 @@ function Details(props) {
 
     <div className='imgDetails'>
     <img src={medicxDetails.imgMed} alt="foto" width={"50%"} />
-    <img src={medicxDetails.imgCapacitaciones} alt="acreditación" width={"30px"} height={"30px"}/>
-
     </div>
 
     {/* <p>Acreditación de capacitación:</p> */}
