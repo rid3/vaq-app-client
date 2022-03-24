@@ -6,13 +6,9 @@ import { guardarService } from "../services/cliente.services"
 function Details(props) {
 
   const [ medicxDetails, setMedicxDetails ] = useState (null)
-  
   const { id } = useParams()
-
   const navigate = useNavigate()
-
   const { isCliente } = props
-
 
 
   useEffect (() => {
@@ -33,7 +29,7 @@ function Details(props) {
     try {
       
       await guardarService(id)
-      navigate("/") //solo para ver si funciona
+      navigate("/") 
     } catch (err) {
       navigate("/error")
     }

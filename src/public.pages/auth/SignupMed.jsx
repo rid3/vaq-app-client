@@ -18,12 +18,12 @@ function SignupMed() {
         event.preventDefault()
     
        const medicx = { nombreCompleto, email, password, especializacion, capacitaciones }
-       //mandar al usuario medicx al BE para crear el registro
+       
       try {
         await signupMedicxService(medicx)
         navigate("/login/medicx")
 
-      } catch (err){ //los errores del BE (err)
+      } catch (err){ 
         if(err.response && err.response.status === 400) {
           setErrorMessage(err.response.data.errorMessage)
          } else {

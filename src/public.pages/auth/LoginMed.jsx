@@ -15,22 +15,16 @@ function Login(props) {
 
     const user = { email, password }
     try {
-
-
       const response = await loginMedicxService(user)
       const { authToken } = response.data
      
       localStorage.setItem ("authToken", authToken)
   
-
       await props.verifyUser()
       navigate("/")
 
-    
-
     } catch(err){
       if(err?.response?.status === 400) {
-        //console.log(errorMessage)
         setErrorMessage(err.response.data.errorMessage)
       } else if (err?.response?.status === 401)
       {
@@ -39,9 +33,7 @@ function Login(props) {
       else {
         navigate("/error")
       }
-
     }
-
   }
 
 

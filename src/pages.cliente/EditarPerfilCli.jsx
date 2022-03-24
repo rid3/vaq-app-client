@@ -21,12 +21,10 @@ function EditarPerfilCli(props) {
   },[])
 
   const getClienteDetails = async () => {
-
     try {
       const response = await perfilprivClienteService(id)
       setNombre (response.data.nombre)
       setPronombres(response.data.pronombres)
-      setImgCliente(response.data.imgCliente)
     } catch (err) {
       navigate("/error")
     }
@@ -35,11 +33,9 @@ function EditarPerfilCli(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     try {
-     await updatePerfilClienteService (id, { nombre, pronombres, imgCliente })
+     await updatePerfilClienteService (id, { nombre, pronombres })
       navigate("/")
-
         }catch(err) {
       navigate("/error")
     }
@@ -55,8 +51,6 @@ function EditarPerfilCli(props) {
       navigate("/error")
     }
   } 
-  
-
 
   return (
     <div>
@@ -87,10 +81,6 @@ function EditarPerfilCli(props) {
 
     <button onClick={ handleOnClick } >Eliminar cuenta </button>
     </form>
-
-
-
-
     </div>
   )
 }

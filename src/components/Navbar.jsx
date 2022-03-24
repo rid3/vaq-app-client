@@ -3,11 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Navbar(props) {
 
   const { isLoggedIn, setIsLoggedIn } = props
-
   const { isCliente, setIsCliente } =props
-
   const { isMedicx, setIsMedicx } = props 
-
 
   const navigate = useNavigate()
 
@@ -17,11 +14,7 @@ function Navbar(props) {
     setIsMedicx(false)
     localStorage.removeItem("authToken")
     navigate("/")
-
   }
-
-
-
 
   return (
     <div>

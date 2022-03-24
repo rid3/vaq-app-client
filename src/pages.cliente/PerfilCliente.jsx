@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { perfilprivClienteService } from "../services/cliente.services"
 
 function PerfilCliente(props) {
@@ -10,19 +10,16 @@ function PerfilCliente(props) {
   const [ useMedicxs, setMedicxs ] = useState(null)
   const navigate = useNavigate()
 
-  // props.setIsCliente(true)
 
   useEffect (() => {
     getClienteDetails()
   }, [])
 
   const getClienteDetails = async () => {
-
     try {
       const response = await perfilprivClienteService (userId)
       setClienteDetails(response.data.nombre)
       setMedicxs (response.data.medicxs)
-      //console.log(response.data.medicxs.nombreCompleto) => da error
     } catch (err) {
       navigate("/error")
     }

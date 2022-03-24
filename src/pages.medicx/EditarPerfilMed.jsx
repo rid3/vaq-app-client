@@ -32,9 +32,6 @@ function EditarPerfil(props) {
   const handleAtiendePor = (e) => setAtiendePor (e.target.value)
   const handleContacto = (e) => setContacto (e.target.value)
 
-  //lidiar con imágenes
-  // const handleImgCapacitacion = (e) => setImgCapacitacion (e.target.value)
-  // const handleImgMed = (e) => setImgMed (e.target.value)
 
   const { id } = useParams()
 
@@ -63,43 +60,12 @@ function EditarPerfil(props) {
     }
   }
 
-  //FILE UPLOAD ----------------------------------------------
-
-  // const handleImgCapacitacion = (e) => {
-
-  //   const uploadData = new FormData()
-  //   uploadData.append("imgCapacitacion", e.target.files[0]);
-
-  //    uploadImage
-  //    .uploadImage(uploadData)
-  //   .then(response => {
-  //     setImgCapacitacion(response.fileUrl);
-  //   })
-  //   .catch(err => console.log("error al cargar la imagen", err));
-  // }
-
-  // const handleImgMed = (e) => {
-
-  //   const uploadData = new FormData()
-  //   uploadData.append("imgMed", e.target.files[0]);
-
-  //   uploadImage
-  //   .uploadImage(uploadData)
-  //   .then(response => {
-  //     setImgMed(response.fileUrl);
-  //   })
-  //   .catch(err => console.log("error al cargar la imagen", err));
-  // }
-// SALE LA TERCERA PRUEBITAAA----------------------------------------------
-
-
 const handleFileUpload = (e, type) => {
   const uploadData = new FormData ();
   uploadData.append("imagen", e.target.files[0])
 
   uploadImage(uploadData)
   .then ( response => {
-    console.log(response.data)
     if (type === "imgMed") {
       setImgMed(response.data.fileUrl);
     } else if ( type === "imgCapacitacion") {
@@ -123,23 +89,6 @@ const handleFileUpload = (e, type) => {
       navigate("/error")
     }
   }
-  //   uploadImage
-  //   .updatePerfilService ({ nombreCompleto, especializacion, capacitaciones, provincia, ciudad, centroDeSalud, diasYhorario, atiendePor, imgMed, imgCapacitacion })
-  //   .then (res => {
-  //     setNombreCompleto("");
-  //     setCapacitaciones("");
-  //     setEspecializacion("");
-  //     setProvincia("");
-  //     setCiudad("");
-  //     setCentroDeSalud("");
-  //     setDiasYhorario("");
-  //     setAtiendePor("");
-  //     setImgCapacitacion("");
-  //     setImgMed("");
-  //     navigate ("/");
-  //   })
-  //   .catch(err=> console.log("error while uploading", err))
-  // }
   
   const handleClick = async () => {
     try {
@@ -147,7 +96,6 @@ const handleFileUpload = (e, type) => {
       props.setIsLoggedIn(false)
       props.setIsMedicx(false)
       localStorage.removeItem("authToken")
-     
       navigate("/")
     } catch(err){
       navigate("/error")

@@ -6,12 +6,9 @@ function PerfilMedicx (props) {
 
 const { userId } = props
 
-
 const navigate = useNavigate()
 
 const [ useNombreCompleto, setNombreCompleto ] = useState(null)
-
-
 
 useEffect (() => {
   getMedicxDetails()

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getAllMessagesService } from "../services/chat.services";
-
 import io from "socket.io-client";
-let socket; //variable global dentro del componente, donde se guarda todo el socket que creamos en el FE para mandárselo al BE
+
+//variable global dentro del componente, donde se guarda todo el socket que creamos en el FE para mandárselo al BE
+let socket; 
 
 function Chat() {
 
@@ -21,12 +22,12 @@ function Chat() {
   const socketConnection = () => {
     // establecemos el socket
     const storedToken = localStorage.getItem("authToken")
-    socket = io.connect("http://localhost:5005", {
+    socket = io.connect(process.env.REACT_APP_SOCKETURL, {
       extraHeaders: { Authorization: `Bearer ${storedToken}` }
     })
 
-    //"emito" que me quiero agregar a un chat
     socket.emit("join_chat", chatId)
+    //"emito" que me quiero agregar a un chat
 
     socket.on("receive_message", (newMessage) => {
       setAllMessages(previousState => {
@@ -43,7 +44,6 @@ function Chat() {
     try {
       const response = await getAllMessagesService(chatId)
       setAllMessages(response.data)
-      //console.log("ACAAAAA", response.data)
     } catch(err) {
       navigate("/error")
     }

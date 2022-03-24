@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { loginClienteService } from '../../services/auth.services';
-import { verifyService } from "../../services/auth.services"
 
 function Login(props) {
 
@@ -20,24 +19,12 @@ function Login(props) {
       //conexión al server para hacer logIn
       const response = await loginClienteService(user)
       const { authToken } = response.data
-      //console.log("authToken", authToken)
-
       //recibir el Token y guardarlo en localStorage
       localStorage.setItem ("authToken", authToken)
       
-      // props.setIsCliente(true)
+
       await props.verifyUser()
-      // props.setIsLoggedIn(true)
-      // props.setIsCliente(true)
       navigate("/")
-      // const verifyUser = await verifyService()
-      // if (verifyUser.data.userRole === "cliente") {
-      //  props.setIsCliente(true) // también se rompe en el perfil privado
-      //   navigate("/")
-      // } else {
-      //   props.setIsCliente(false)
-      //   navigate("/")
-      // }
 
     } catch(err){
       if(err?.response?.status === 400) {
@@ -48,9 +35,7 @@ function Login(props) {
       }  else {
         navigate("/error")
       }
-
     }
-
   }
 
 
