@@ -62,7 +62,7 @@ function Chat() {
 
   return (
     <div>
-      <h1>Red de Medicxs</h1>
+      <h1>Red de Médicxs</h1>
       <hr />
 
         {/* <div className="chatMed" > */}

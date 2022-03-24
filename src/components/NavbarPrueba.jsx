@@ -81,7 +81,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                     {/* <div>
                         <FaCaretRight/>
                     { !isLoggedIn && <a href="/login/cliente"> Log In Cliente </a> } */}
-                    { !isLoggedIn && <NavLink to ="/login/cliente"> Log In Cliente </NavLink> }
+                    { !isLoggedIn && <NavLink to ="/login/cliente"> Log In Paciente </NavLink> }
                     {/* </div> */}
                     </MenuItemLink>
                 </MenuItem>
@@ -101,7 +101,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                     {/* <div>
                         <FaCaretRight/>
                     { isCliente && <a href="/perfilcliente">Perfil PrivCli</a> } */}
-                { isCliente && <NavLink to="/perfilcliente" > Perfil PrivCli </NavLink> } 
+                { isCliente && <NavLink to="/perfilcliente" > Perfil Priv </NavLink> } 
                     {/* </div> */}
                     </MenuItemLink>
                 </MenuItem>
@@ -111,7 +111,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                     {/* <div>
                         <FaCaretRight/>
                     { isMedicx && <a href="/perfilmedicx"> Perfil PrivMed</a> } */}
-                    { isMedicx && <NavLink to="/perfilmedicx" > Perfil PrivMed</NavLink> }   
+                    { isMedicx && <NavLink to="/perfilmedicx" > Perfil Priv</NavLink> }   
                     {/* </div> */}
                     </MenuItemLink>
                 </MenuItem>
@@ -121,7 +121,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                     {/* <div>
                         <FaCaretRight/> */}
                     {/* { isMedicx && <a href="/user-list"> Chat Medicxs</a> } */}
-                    { isMedicx && <NavLink to="/user-list">Chat Medicxs</NavLink> }
+                    { isMedicx && <NavLink to="/user-list">Chat Médicxs</NavLink> }
                     {/* </div> */}
                     </MenuItemLink>
                 </MenuItem>

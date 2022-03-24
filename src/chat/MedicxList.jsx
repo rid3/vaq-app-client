@@ -38,7 +38,7 @@ function UserList() {
 
   return (
     <div>
-      <h1>Medicxs</h1>
+      <h1>Médicxs</h1>
     
 
       {users.map((eachUser) => {

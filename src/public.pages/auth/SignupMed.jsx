@@ -34,7 +34,7 @@ function SignupMed() {
 
   return (
     <div>
-        <h1>Sign Up como Medicx</h1>
+        <h1>Sign Up como Médicx</h1>
 
         <form onSubmit={ handleSubmit } >
 
@@ -87,7 +87,7 @@ function SignupMed() {
             value={password} 
             onChange= { (event) => setPassword (event.target.value) }
             />
-            <p>La contraseña debe contener aunquesea: una letra minúscula, una mayúscula, un carácter y un número.</p>     
+            <p>La contraseña debe contener aunque sea: una letra minúscula, una mayúscula, un carácter y un número.</p>     
             <br />
             <br />
             <br />

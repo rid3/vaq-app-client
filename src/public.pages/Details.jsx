@@ -48,28 +48,28 @@ function Details(props) {
 
     <h1>{medicxDetails.nombreCompleto}</h1>
     <hr />
-    <p>Especializacion: {medicxDetails.especializacion}</p>
+    <p> <b>Especialización </b> : {medicxDetails.especializacion}</p>
     <hr />
-    <p>Capacitacion en género: {medicxDetails.capacitaciones}</p>
+    <p> <b>Capacitación en género</b>: {medicxDetails.capacitaciones}</p>
     <hr />
-    <p>Provincia: {medicxDetails.provincia}</p>
+    <p> <b>Provincia</b> : {medicxDetails.provincia}</p>
     <hr />
-    <p>Ciudad: {medicxDetails.ciudad}</p>
+    <p> <b>Ciudad</b> : {medicxDetails.ciudad}</p>
     <hr />
-    <p>Guardias en: {medicxDetails.centroDeSalud}</p> <br />
+    <p> <b>Guardias en</b> : {medicxDetails.centroDeSalud}</p> <br />
     <hr />
-    <p>Días y Horarios: {medicxDetails.diasYhorario}</p>
+    <p> <b>Días y Horarios</b> : {medicxDetails.diasYhorario}</p>
     <hr />
-    <p>Atiende por: {medicxDetails.atiendePor}</p>
+    <p> <b>Atiende por</b>(obra social, particular, ambos): {medicxDetails.atiendePor}</p>
     <hr />
-    <p>Contacto: {medicxDetails.contacto}</p>
+    <p> <b>Contacto</b> : {medicxDetails.contacto}</p>
     <hr />
 
 
     { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
 
     <div className='imgDetails'>
-    <img src={medicxDetails.imgMed} alt="foto" width={"50%"} />
+    <img src={medicxDetails.imgMed} alt="foto" width={"80%"} />
     </div>
 
     {/* <p>Acreditación de capacitación:</p> */}

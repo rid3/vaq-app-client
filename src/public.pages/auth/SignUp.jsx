@@ -11,7 +11,7 @@ function Signup() {
 <br />
 <br />
 
-<NavLink to="/signup/cliente" >Crear cuenta como Cliente </NavLink>
+<NavLink to="/signup/cliente" >Crear cuenta como Paciente </NavLink>
 
 </div>
 

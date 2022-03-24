@@ -71,6 +71,7 @@ p {
 }
 .medicx{
   background-color: rgb(150, 167, 235);
+  flex-direction: column;
 }
 .medicxsListChat{
   background-color: rgb(118, 199, 205);

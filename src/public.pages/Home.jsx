@@ -7,7 +7,7 @@ function Home() {
         <div className='cardHome' >
 
     
-        <h3 className='cardHome' >Creando una red de profesionales de la salud que se comprometen a estar capacitades en género. <br /> <br /> A les medicxs les ofrecemos un espacio para que además de promocionarse, puedan crear redes entre elles vía un chat privado. A quienes buscan medicxs en su perfil podran guardar a les médiques que les interese y expander su experiencia. <br /> <br /> ¡En VAQ apostamos por espacios de salud en donde se nos respete!</h3>
+        <h3 className='cardHome'>Creando una red de profesionales de la salud que se comprometen a estar capacitades en perspectiva de género. <br /> <br /> A lxs médicxs les ofrecemos un espacio donde, además de expandir su alcance, puedan crear redes entre profesionales vía un chat privado. A quienes buscan médicxs, en su perfil podran guardar la información de les médiques que les interese. <br /> <br /> ¡VAQ apuesta por espacios de salud en donde se nos respete!</h3>
 
         </div>
     </div>

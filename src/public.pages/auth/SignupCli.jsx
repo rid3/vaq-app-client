@@ -33,7 +33,7 @@ function SignupCli() {
 
   return (
     <div>
-    <h1>Sign Up como Client</h1>
+    <h1>Sign Up como Paciente</h1>
 
     <form onSubmit={ handleSubmit }>
         
@@ -75,7 +75,7 @@ function SignupCli() {
         value={passwordCliente}
         onChange= { (event) => setPasswordCliente (event.target.value) }
          /> 
-         <p>La contraseña debe contener aunquesea: una letra minúscula, una mayúscula, un carácter y un número.</p>
+         <p>La contraseña debe contener aunque sea: una letra minúscula, una mayúscula, un carácter y un número.</p>
 
 <br />
          <br />

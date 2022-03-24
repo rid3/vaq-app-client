@@ -41,7 +41,7 @@ function Login(props) {
 
   return (
     <div>
-        <h1>Log In Cliente</h1>
+        <h1>Log In Paciente</h1>
 
         <form onSubmit={ handleSubmit }>
             <br />
