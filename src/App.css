@@ -1,16 +1,15 @@
 body {
-  margin:0px;
+  /* margin:0px;
   display:flex;
   justify-content:center;
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 100vh; POR NAV LO SILENCIÉ*/
   background: black;
   background-image: linear-gradient(to right, rgb(147, 61, 61),rgb(152, 116, 54),rgb(142, 142, 83),rgb(88, 118, 88),rgb(60, 60, 143),rgb(93, 38, 131),rgb(101, 77, 101)); 
   
   background-size: 100% 100%;
   }
-  
-    
+
     .App {
       display:flex;
       justify-content: center;
@@ -42,5 +41,24 @@ border: 2px solid purple;
 box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
 
+/* GENERALES--------------------- */
+h1 {
+  margin:30px;
+}
+
+/* FIN GENERALES--------------------- */
+
+/* SIGN UP---------------------- */
+.signUpLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  font-size: 30px;
+  
+}
+
+/* FIN  SIGN UP---------------------- */
 
 

@@ -69,11 +69,7 @@ function EditarPerfilCli(props) {
     <br />
     <br />
 
-    <label htmlFor="imgCliente">Imagen: </label>
-    <input type="file" name="imgCliente" value={imgCliente} onChange={ handleImgCliente } />
-    <br />
-    <br />
-    <br />
+    
     <button>Editar Perfil</button>
     <br />
     <br />

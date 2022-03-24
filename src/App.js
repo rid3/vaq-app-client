@@ -22,6 +22,10 @@ import MedicxList from "./chat/MedicxList.jsx"
 import Chat from "./chat/Chat"
 
 
+//NAVBARPRUEBA ------------
+import NavbarPrueba from "./components/NavbarPrueba"
+
+
 
 
 import { useEffect, useState } from "react"
@@ -71,9 +75,18 @@ function App() {
   return (
     <div className="App">
 
-    <Navbar 
+    {/* <Navbar 
+    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isCliente={isCliente} setIsCliente={setIsCliente} isMedicx={isMedicx} setIsMedicx={setIsMedicx}
+    /> */}
+
+<NavbarPrueba 
     isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isCliente={isCliente} setIsCliente={setIsCliente} isMedicx={isMedicx} setIsMedicx={setIsMedicx}
     />
+
+
+
+
+
 
     <Routes>
 
