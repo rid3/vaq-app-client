@@ -50,7 +50,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                 <MenuItem >
                     <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)}  >
             
-                    <NavLink style={{color: 'purple', textDecoration: 'none'}} to ="/perfilesmed"> Perfiles Medicxs </NavLink>    
+                    <NavLink style={{color: 'green', textDecoration: 'none'}} to ="/perfilesmed"> Perfiles Medicxs </NavLink>    
         
                     </MenuItemLink>
                 </MenuItem>
@@ -74,14 +74,14 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
                 <MenuItem>
                     <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
          
-                    { !isLoggedIn && <NavLink  style={{color: 'green', textDecoration: 'none'}} to="/signup"> Sign Up </NavLink> }  
+                    { !isLoggedIn && <NavLink  style={{color: 'purple', textDecoration: 'none'}} to="/signup"> Sign Up </NavLink> }  
               </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
                     <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
              
-                { isCliente && <NavLink style={{color: 'green', textDecoration: 'none'}} to="/perfilcliente" > Perfil Priv </NavLink> } 
+                { isCliente && <NavLink style={{color: 'purple', textDecoration: 'none'}} to="/perfilcliente" > Perfil Priv </NavLink> } 
       
                     </MenuItemLink>
                 </MenuItem>
