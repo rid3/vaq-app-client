@@ -30,9 +30,8 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
     <Container>
         <Wrapper>
         <IconContext.Provider value={{ style: {fontSize: "2em"} }} >
-            <LogoContainer>
+            <LogoContainer >
             <NavLink to="/">  <FaRainbow /></NavLink>
-            <p></p>
             <p>V.A.Q.</p>
             </LogoContainer>
 
@@ -46,91 +45,67 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
 
             <Menu open = { showMobileMenu } >
 
-                <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                    <FaHome/>
-                    <a href="/">Home</a> */}
-                   {/* <NavLink to="/"> Home </NavLink> */}
-                    {/* </div> */}
-                    </MenuItemLink>
-                </MenuItem>
 
                 <MenuItem >
-                    <MenuItemLink>
-                    {/* <div>
-                    <FaCaretRight/>
-                    <a href="/perfilesmed">Perfiles Medicxs</a> */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)}  >
+            
                     <NavLink to ="/perfilesmed"> Perfiles Medicxs </NavLink>    
-                    {/* </div> */}
+        
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                    <FaCaretRight/>
-                    { !isLoggedIn && <a href="/login/medicx">Log In Medicx</a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+    
                 { !isLoggedIn && <NavLink to ="/login/medicx"> Log In Medicx </NavLink> }
-                    {/* </div> */}
+    
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                        <FaCaretRight/>
-                    { !isLoggedIn && <a href="/login/cliente"> Log In Cliente </a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+              
                     { !isLoggedIn && <NavLink to ="/login/cliente"> Log In Paciente </NavLink> }
-                    {/* </div> */}
+     
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                        <FaCaretRight/>
-                    { !isLoggedIn && <a href="/signup"> Sign Up </a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+         
                     { !isLoggedIn && <NavLink to="/signup"> Sign Up </NavLink> }  
-                    {/* </div> */}
-                    </MenuItemLink>
+              </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                        <FaCaretRight/>
-                    { isCliente && <a href="/perfilcliente">Perfil PrivCli</a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+             
                 { isCliente && <NavLink to="/perfilcliente" > Perfil Priv </NavLink> } 
-                    {/* </div> */}
+      
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                        <FaCaretRight/>
-                    { isMedicx && <a href="/perfilmedicx"> Perfil PrivMed</a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+       
                     { isMedicx && <NavLink to="/perfilmedicx" > Perfil Priv</NavLink> }   
-                    {/* </div> */}
+          
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
-                    {/* <div>
-                        <FaCaretRight/> */}
-                    {/* { isMedicx && <a href="/user-list"> Chat Medicxs</a> } */}
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
+             
                     { isMedicx && <NavLink to="/user-list">Chat Médicxs</NavLink> }
-                    {/* </div> */}
+    
                     </MenuItemLink>
                 </MenuItem>
 
                 <MenuItem>
-                    <MenuItemLink>
+                    <MenuItemLink onClick= { () => setShowMobileMenu (!showMobileMenu)} >
             
                     { isLoggedIn && <button onClick={ handleClick } >Log Out</button> }
-                    {/* </div> */}
+   
                     </MenuItemLink>
                 </MenuItem>
             </Menu>

@@ -89,7 +89,7 @@ font-size: 1rem;
 font-weight:300;
 cursor: pointer;
 transition: 0.5s all ease;
-margin-left: 20px;
+margin-left: 10px;
 
 & :hover {
     color: #fff;
