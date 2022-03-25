@@ -32,6 +32,7 @@ const [ showMobileMenu, setShowMobileMenu ] = useState(false)
         <IconContext.Provider value={{ style: {fontSize: "2em"} }} >
             <LogoContainer >
             <NavLink to="/">  <FaRainbow /></NavLink>
+            <p></p>
             <p>V.A.Q.</p>
             </LogoContainer>
 
