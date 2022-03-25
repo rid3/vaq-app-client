@@ -67,12 +67,11 @@ function Details(props) {
 
 
     { isCliente && <button onClick={ handleGuardar }  >Guardar Médicx</button> }
-
+    <p><b>Acreditación:</b></p>
     <div className='imgDetails'>
-    <img src={medicxDetails.imgMed} alt="foto" width={"80%"} />
+    <img src={medicxDetails.imgMed} alt="foto" width={"50%"} />
     </div>
 
-    {/* <p>Acreditación de capacitación:</p> */}
     </div>
 
     
