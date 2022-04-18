@@ -1,5 +1,5 @@
 # V.A.Q.
-## "Vamo a QUIdArno" 
+## "Vamo a QUIdaRno" 
 ("lets take care of ourselves")
 
 
